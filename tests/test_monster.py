@@ -11,4 +11,6 @@ def test_save():
         monster.save()
 
         # confirmado del guardado
-        mock_connection.return_value.commit.assert_called_once()
+        #mock_connection.return_value.commit.assert_called_once()
+
+        assert False 
