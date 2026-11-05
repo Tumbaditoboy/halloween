@@ -19,6 +19,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Run unit tests
+        run: python -m pytest -v
+
       - name: Check that the app loads
         run: python -c "import app"
 
@@ -28,7 +31,7 @@ jobs:
     steps:
       - name: Trigger Render deploy
         env:
-          RENDER_DEPLOY_HOOK_URL: ${{ secrets.https://api.render.com/deploy/srv-dbhpnpe7bikc73f8dfc0?key=6nxDPh-aZR4 }}
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
           if [ -z "$RENDER_DEPLOY_HOOK_URL" ]; then
             echo "Falta el secreto RENDER_DEPLOY_HOOK_URL"
